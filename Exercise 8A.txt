@@ -1,0 +1,14 @@
+Q1
+49, 71, 88
+49, 71, 68
+Find no of access needed for binary search: integer of log base 2 (n) + 1
+Linear search list can be not in order, binary search list must be order
+Binary search keeps halving the number of items to be searched while linear search goes by every item
+
+Q2
+a)
+
+b) is essentially max no of searches needed
+int(log2 n) + 1
+need to justify: 142, 71, 35, 17, 8, 4, 2, 1, total 8 access
+divide by 2 from the no of element 
