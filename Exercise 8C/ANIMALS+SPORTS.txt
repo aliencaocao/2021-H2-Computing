@@ -1,0 +1,26 @@
+Animal[1] = "SNAKE"
+Animal[2] = "CAT"
+Animal[3] = "LION"
+Animal[4] = "WOLF"
+Animal[5] = "TIGER"
+Animal[6] = "GIRAFFE"
+Animal[7] = "HORSE"
+Animal[8] = "ZEBRA"
+Animal[9] = "LIZARD"
+Animal[10] = "BEAR"
+Animal[11] = "CROCODILE"
+Animal[12] = "AARDVARK"
+Animal[13] = "ALLIGATOR"
+
+Sport[1]="FOOTBALL"
+Sport[2]="HANDBALL"
+Sport[3]="HOCKEY"
+Sport[4]="CRICKET"
+Sport[5]="CYCLING"
+Sport[9]="WATER POLO"
+Sport[6]="JUDO"
+Sport[7]="SWIMMING"
+Sport[8]="BASKETBALL"
+
+
+
