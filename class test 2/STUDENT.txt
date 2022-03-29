@@ -1,0 +1,5 @@
+John,1.86
+Apple,1.65
+Danny,1.70
+Cherry,1.68
+Henry,1.75
