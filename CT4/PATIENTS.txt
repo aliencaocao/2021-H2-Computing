@@ -1,0 +1,6 @@
+George,2
+Jane,1
+Sandra,4
+Bill,3
+Dave,5
+Bob,1
