@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Add Item</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<h1>Add Item</h1>
+<form method="POST" action="{{ url_for('add') }}" enctype="multipart/form-data">
+    <label for="category">Category:</label>
+    <select id="category" name="categoryID">
+        {% for category in categories %}
+        <option value={{category.id}}>{{category.name}}</option>
+        {% endfor %}
+    </select>
+    <br>
+    <textarea id="description" name="description" placeholder="Enter description here..." cols=30></textarea>
+    <br>
+    <p>Photo Upload:</p>
+    <input id="photo" name="photo" type="file">
+    <br>
+    <input type="submit" class="button">
+</form>
+<a href="{{ url_for('index') }}">Discard and return to listing</a>
+</body>
+</html>

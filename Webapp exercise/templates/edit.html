@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Edit Item</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<h1>Edit Item</h1>
+<form method="POST" action="{{ url_for('edit') }}" enctype="multipart/form-data">
+    <label for="category">Category:</label>
+    <select id="category" name="categoryID">
+        {% for category in categories %}
+        {% if category.Name == item.categoryname %}
+            <option value={{category.id}} selected>{{category.name}}</option>
+        {% else %}
+            <option value={{category.id}}>{{category.name}}</option>
+        {% endif %}
+        {% endfor %}
+    </select>
+    <br>
+    <label for="status">Status:</label>
+    <select id="status" name="status">
+        {% if item.status == "Incomplete" %}
+            <option value="Incomplete" selected>Incomplete</option>
+            <option value="Complete">Complete</option>
+        {% else %}
+            <option value="Incomplete">Incomplete</option>
+            <option value="Complete" selected>Complete</option>
+        {% endif %}
+    </select>
+    <br>
+    <textarea id="description" name="description" placeholder="Enter description here..." cols=30>{{ item.desc }}</textarea>
+    <br>
+    <img src="{{ url_for('getfile', filename=item.imageURL) }}" alt="{{ url_for('getfile', filename=item.imageURL) }}">
+    <textarea id="ID" name="ID" hidden="hidden">{{ item.id }}</textarea>
+    <textarea id="original_image" name="original_image" hidden="hidden">{{ item.imageURL }}</textarea>
+    <p>Photo Upload:</p>
+    <input id="photo" name="photo" type="file">
+    <br>
+    <input type="submit" class="button">
+</form>
+<a href="{{ url_for('index') }}">Discard and return to listing</a>
+</body>
+</html>

@@ -1,0 +1,45 @@
+body{
+	font-family: sans-serif;
+	text-align: center;
+	background-color: antiquewhite;
+}
+
+table{
+	border-collapse: collapse;
+	margin: auto;
+}
+
+th{
+	border: 3px solid cornflowerblue;
+	padding: 10px;
+	align-content: center;
+}
+
+td{
+	border: 1px solid cornflowerblue;
+	padding: 5px;
+	margin: 10px;
+	align-content: center;
+	text-align: center;
+}
+
+img{
+	vertical-align: middle;
+	display: inline-block;
+}
+
+.todo_desc{
+	vertical-align: middle;
+	display: inline-block;
+}
+
+.button{
+	background-color: cornflowerblue;
+	color: white;
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin: 10px;
+	border-radius: 5px;
+	display: inline-block;
+}
