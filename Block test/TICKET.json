@@ -1,0 +1,11 @@
+[ {"country": "Australia", "city":"Sydney", "price": 904, "company":"B Airways", "durationHour":8},
+{"country":"Australia", "city":"Melbourne", "price":1628, "company":"Q Airlines", "durationHour":7},
+{"country":"Australia", "city":"Perth", "price":881, "company":"S Airlines", "durationHour":5},
+{"country":"UK", "city":"London", "price":1373, "company":"L Airlines", "durationHour":19, "stop":2},
+{"country":"UK", "city":"London", "price":1561, "company":"S Airlines", "durationHour":17, "stop":1},
+{"country":"UK", "city":"Manchester", "price":1708, "company":"E Air", "durationHour":25, "stop":1},
+{"country":"UK", "city":"Manchester", "price":2917, "company":"B Airways", "durationHour":17, "stop":1},
+{"country":"Japan", "city":"Osaka", "price":821, "company":"S Airlines", "durationHour":10, "stop":1},
+{"country":"Japan", "city":"Tokyo", "price":1028, "company":"J Airlines", "durationHour":7},
+{"country":"Japan", "city":"Tokyo", "price":1124, "company":"Air J", "durationHour":7}
+]
