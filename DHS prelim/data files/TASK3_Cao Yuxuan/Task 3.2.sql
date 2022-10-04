@@ -1,0 +1,2 @@
+SELECT ballot_result FROM Results WHERE nric='T0663758C';
+SELECT Name.names, Results.ballot_result FROM Name, Results WHERE Results.nric=Name.nric AND Results.group_id=(SELECT group_id FROM Results WHERE nric='S9981511E')

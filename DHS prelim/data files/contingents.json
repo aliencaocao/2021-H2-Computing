@@ -1,0 +1,29 @@
+[
+    {
+        "citizenship": "Singaporean",
+        "height": 1.8,
+        "medical_history": ["heart issues", "asthma", "eczema"],
+        "name": "Shen Rui Lin",
+        "suitability": "Pending"
+    },
+    {
+        "citizenship": "PR",
+        "height": 1.4,
+        "medical_history": ["G6PD", "heat exhaustion"],
+        "name": "Chee Jun Ming",
+        "suitability": "Pending"
+    },
+    {
+        "citizenship": "Foreigner",
+        "height": 1.7,
+        "medical_history": ["heat exhaustion", "sweaty palms"],
+        "name": "Yeung Jun Feng",
+        "suitability": "Pending"
+    },
+    {
+        "citizenship": "Singaporean",
+        "medical_history": ["asthma"],
+        "name": "Deng Kai De",
+        "suitability": "Pending"
+    }
+]

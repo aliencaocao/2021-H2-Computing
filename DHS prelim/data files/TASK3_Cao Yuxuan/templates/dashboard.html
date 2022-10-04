@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+ <html>
+<head>
+<title>Dashboard</title>
+<style>
+td {border: solid;}
+th {border: solid;}
+table {border-collapse: collapse;}
+</style>
+</head>
+
+<body>
+
+<p>Your NDP balloting results: {{ ballot_result }}</p>
+<br>
+<p>Results of memebers in your group</p>
+<table>
+<tr>
+<th>Name</th>
+<th>Balloting Results</th>
+</tr>
+{% for person in group_result %}
+<tr>
+<td>
+{{ person.name }}
+</td>
+<td>
+{{ person.ballot_result }}
+</td>
+</tr>
+{% endfor %}
+</table>
+
+</body>
+ </html>
