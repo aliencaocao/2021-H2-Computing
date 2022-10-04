@@ -1,0 +1,19 @@
+def play_wordle():
+    print("_ _ _ _ _")
+    word = get_word('words.txt')
+    print("you get 6 guesses!")
+    for i in range(1,7):
+        guess = input("what is your guess?: ")
+        while (check_validity(guess) == False):
+            print("please enter exactly 5 lower case letters only")
+            guess = input("what is your guess?: ")
+        correct, incorrect = check_guess(guess, word) 
+        print(guess)
+        display_result(correct, incorrect)
+        if len(correct) == 5:
+            print(f"you used {i} guesses!")
+            print("You win!")
+            return None
+    print("You ran out guesses!")
+    print("The word was:", word)
+    return None

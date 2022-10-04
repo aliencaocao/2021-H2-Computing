@@ -1,0 +1,534 @@
+%% LyX 2.3.6.1 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[11pt,twoside,english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{geometry}
+\geometry{verbose,tmargin=2cm,bmargin=2cm,lmargin=2cm,rmargin=2cm}
+\usepackage{graphicx}
+\usepackage{setspace}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1.8cm,bmargin=4cm,lmargin=1.5cm,rmargin=2cm}
+\usepackage{enumitem}
+\usepackage{amstext}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{setspace}
+\usepackage{graphicx}
+\doublespacing
+
+
+\usepackage{enumitem}
+\setenumerate[1]{label=\textbf{\arabic*}}
+\setenumerate[2]{label=\textbf{(\alph*)}}
+\setenumerate[3]{label=\textbf{(\roman*)}}
+\setlist[enumerate]{align=right}
+
+\setcounter{page}{2}
+
+%for upright integrals
+\usepackage[integrals]{wasysym}
+
+%to be used in conjunction with fancyfoot for last page
+\usepackage{zref-totpages}
+
+%fancyhrd settings
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+\fancypagestyle{laststyle}
+{
+   \fancyhf{}
+   \chead{\thepage}
+   \fancyfoot[L]{\copyright NJC }
+   \fancyfoot[R]{\textbf{END}} %Put \thispagestyle{laststyle} in the last page
+}
+
+%%centering page number
+\chead{\thepage}
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%%footer settings, different footer for ODD and EVEN pages, also for the LASTPAGE
+\fancyfoot[LO]{\copyright NJC\hfill \textbf{[Turn Over}}
+\fancyfoot[LE]{\copyright NJC }
+
+%%shameless self-plug BRW
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\begin{enumerate}
+\item In mathematics, a polynomial in $x$ is an expression $p\left(x\right)$
+consisting of a single variable $x$ and coefficients, that involves
+only the operations of addition, subtraction, multiplication, and
+non-negative integer exponentiation of $x$.
+
+For example, $x^{2}-4x+7$, $8x^{3}-5x+6$ are examples of polynomials.
+
+\subsection*{Task 1.1}
+
+The Python function \texttt{eval()} can be used to evaluate a mathematical
+expression in the string format to give a numerical value. For example,
+\texttt{eval('5{*}{*}2+3{*}4-1')} will return the value \texttt{36}. 
+
+Write a function \texttt{fun(expression,num) }that takes in a string
+expression of a polynomial and evaluate the value of the polynomial
+when the variable $x$ in the polynomial is set to \texttt{num. }\hfill{}{[}2{]}
+
+Polynomials can be plotted on the $xy$-axes and the area of the region
+$R$ bounded by the polynomial $p\left(x\right)$, the lines $x=a$
+, $x=b$, and the $x$-axes is a quantity of interest to a lot of
+people. For this question, we assume $a\le b$.
+
+\newpage
+
+\subsection*{Task 1.2}
+
+One way to obtain the approximation of the area of the region $R$
+is to do the following procedure:
+\begin{enumerate}
+\item divide the line segment between the vertical lines $x=a$ and $x=b$
+into $n$ segment of equal lengths $\Delta x$,
+\item for each line segment produced, we generate a rectangle with width
+$\Delta x$ and the height is the value of the polynomial at the \textbf{left}most
+$x$-value of the line segment,
+\item compute the area of the rectangles generated this way and sum them,
+\item The sum is the approximated area of the region $R$.
+\end{enumerate}
+The following is an example of the approximation given by the procedure
+above, when $a=2,$$b=4$, $n=2$ and polynomial $p\left(x\right)=x^{2}-4x+7$. 
+\noindent \begin{center}
+\includegraphics[scale=0.4]{TASK1_1}
+\par\end{center}
+
+Write a function \texttt{left\_sum(expr, a, b, num) }to implement
+the process above. The function in a polynomial expression \texttt{expr},
+and numerics \texttt{a}, \texttt{b} and \texttt{num}, where \texttt{a}
+and \texttt{b} are the $x$-values of the region $R$ and \texttt{num
+}is the number of line segments we are using to do the approximation.\hfill{}{[}3{]}
+
+Test your function with the following call:
+
+\texttt{left\_sum('8{*}x{*}{*}3-5{*}x+6', 2, 4, 100)}\hfill{}{[}1{]}
+
+\newpage
+
+\subsection*{Task 1.3}
+
+Yet another way to obtain the approximation of the area of the region
+$R$ is to use a similar procedure as of Task 1.2, with the following
+modification to part (a) and (b):
+\begin{enumerate}
+\item[\textbf{(a'')}] divide the line segment between the vertical lines $x=a$ and $x=b$
+into $n$ line segments $l_{i}$ of random lengths. The \texttt{random.uniform(a,b)}
+method generates a random value between $a$ and $b$.
+\item[\textbf{(b'')}] for each line segment $l_{i}$ produced, we generate a rectangle
+with width $\Delta x_{i}$ and the height is the value of the polynomial
+at middle $x$-value of the line segment,
+\end{enumerate}
+The following is an example of the approximation given by the procedure
+above, when $a=2,$$b=4$, $n=2$, polynomial $p\left(x\right)=x^{2}-4x+7$.
+The two intervals $l_{1}$ and $l_{2}$ in the example has lengths
+$\Delta x_{1}=1.2$ units and $\Delta x_{2}=0.8$ units.
+\noindent \begin{center}
+\includegraphics[scale=0.4]{TASK1_3}
+\par\end{center}
+
+Write a function \texttt{random\_sum(expr, a, b, num) }to implement
+the process above. The function in a polynomial expression \texttt{expr},
+and numerics \texttt{a}, \texttt{b} and \texttt{num}, where \texttt{a}
+and \texttt{b} are the $x$-values of the region $R$ and \texttt{num
+}is the number of line segments we are using to do the approximation.\hfill{}{[}4{]}
+
+Test your function with the following call:
+
+\texttt{random\_sum('8{*}x{*}{*}3-5{*}x+6', 2, 4, 100)}\hfill{}{[}1{]}
+
+\newpage
+\item For this question you are provided with three text files, each contains
+a valid list of positive integers, one per line:
+\begin{itemize}
+\item \texttt{TEN.txt} has 10 lines
+\item \texttt{HUNDRED.txt} has 100 lines
+\item \texttt{THOUSAND.txt} has 1000 lines.
+\end{itemize}
+For each of the sub-tasks, add a comment statement at the beginning
+of the code using the hash symbol \textquoteleft \#' to indicate the
+sub-task the program code belongs to, for example:
+
+\begin{singlespace}
+\noindent \texttt{}%
+\begin{tabular}{c|lcccccccccccccccccccccc|}
+\cline{2-24} \cline{3-24} \cline{4-24} \cline{5-24} \cline{6-24} \cline{7-24} \cline{8-24} \cline{9-24} \cline{10-24} \cline{11-24} \cline{12-24} \cline{13-24} \cline{14-24} \cline{15-24} \cline{16-24} \cline{17-24} \cline{18-24} \cline{19-24} \cline{20-24} \cline{21-24} \cline{22-24} \cline{23-24} \cline{24-24} 
+\texttt{In {[}1{]} :} & \texttt{\#Task 2.1} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
+ & \texttt{Program Code} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
+\cline{2-24} \cline{3-24} \cline{4-24} \cline{5-24} \cline{6-24} \cline{7-24} \cline{8-24} \cline{9-24} \cline{10-24} \cline{11-24} \cline{12-24} \cline{13-24} \cline{14-24} \cline{15-24} \cline{16-24} \cline{17-24} \cline{18-24} \cline{19-24} \cline{20-24} \cline{21-24} \cline{22-24} \cline{23-24} \cline{24-24} 
+\multicolumn{1}{c}{} & \texttt{Output:} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \multicolumn{1}{c}{}\tabularnewline
+\end{tabular}
+\end{singlespace}
+
+\subsection*{Task 2.1 }
+
+Write a function \texttt{task2\_1(filename)} that: 
+\begin{itemize}
+\item takes a string filename which represents the name of a text file 
+\item reads in the contents of the text file 
+\item returns the content as a list of integers. \hfill{}{[}3{]} 
+\end{itemize}
+
+\subsection*{Task 2.2 }
+
+One method of sorting is the bubble sort.
+
+Write a function \texttt{task2\_2(list\_of\_integers)} that: 
+\begin{itemize}
+\item takes a list of integers 
+\item implements a bubble sort algorithm 
+\item returns the sorted list of integers in ascending order. \hfill{}{[}5{]}
+\end{itemize}
+\newpage
+
+\subsection*{Task 2.3 }
+
+Another method of sorting is the insertion sort. 
+
+Write a function t\texttt{ask2\_3(list\_of\_integers)} that: 
+\begin{itemize}
+\item takes a list of integers 
+\item implements a insertion sort algorithm 
+\item returns the sorted list of integers in ascending order.\hfill{} {[}5{]}
+\end{itemize}
+
+\subsection*{Task 2.4 }
+
+Yet another method of sorting is the quicksort. 
+
+Write a function t\texttt{ask2\_4(list\_of\_integers)} that: 
+\begin{itemize}
+\item takes a list of integers 
+\item implements a quicksort algorithm 
+\item returns the sorted list of integers in ascending order.\hfill{} {[}7{]}
+\end{itemize}
+
+\subsection*{Task 2.5 }
+
+Even another method of sorting is the merge sort. 
+
+Write a function t\texttt{ask2\_5(list\_of\_integers)} that: 
+\begin{itemize}
+\item takes a list of integers 
+\item implements a merge sort algorithm 
+\item returns the sorted list of integers in ascending order.\hfill{} {[}7{]}
+\end{itemize}
+\newpage
+
+\subsection*{Task 2.6}
+
+Call your functions \texttt{task2\_2 task2\_3, task2\_4, task2\_5}
+with the contents of the file \texttt{TEN.txt}, printing the returned
+lists. For example, using the following statement: 
+
+\texttt{\qquad{}print(task2\_2(task2\_1('TEN.txt')))}.\hfill{}{[}1{]}
+
+\subsection*{Task 2.7}
+
+The \texttt{timeit} library is built into Python and can be used to
+time simple function calls. Example code is shown in \texttt{Task2\_timing.py}.
+(The sample code assumes that it has access \texttt{task2\_2} function.) 
+
+Using the \texttt{timeit} module, or other evidence, and the three
+text files provided with this question, compare and contrast, including
+mention of orders of growth, the time complexity of the different
+sorting algorithms. 
+
+Save your Jupyter notebook for Task 2.\hfill{}{[}5{]}
+
+\newpage
+\item A hobbyist programmer is trying to create a web browser. A feature
+he wants the web browser to have is the ability to revisit previously
+accessed web pages. To achieve this, he designed a class, \texttt{Stack},
+to represent a stack of the user's browsing history, which includes
+the web pages with its associated page title and time of visit. 
+
+For each of the sub-tasks, add a comment statement at the beginning
+of the code using the hash symbol \textquoteleft \#' to indicate the
+sub-task the program code belongs to, for example:
+
+\begin{singlespace}
+\noindent \texttt{}%
+\begin{tabular}{c|lcccccccccccccccccccccc|}
+\cline{2-24} \cline{3-24} \cline{4-24} \cline{5-24} \cline{6-24} \cline{7-24} \cline{8-24} \cline{9-24} \cline{10-24} \cline{11-24} \cline{12-24} \cline{13-24} \cline{14-24} \cline{15-24} \cline{16-24} \cline{17-24} \cline{18-24} \cline{19-24} \cline{20-24} \cline{21-24} \cline{22-24} \cline{23-24} \cline{24-24} 
+\texttt{In {[}1{]} :} & \texttt{\#Task 3.1} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
+ & \texttt{Program Code} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
+\cline{2-24} \cline{3-24} \cline{4-24} \cline{5-24} \cline{6-24} \cline{7-24} \cline{8-24} \cline{9-24} \cline{10-24} \cline{11-24} \cline{12-24} \cline{13-24} \cline{14-24} \cline{15-24} \cline{16-24} \cline{17-24} \cline{18-24} \cline{19-24} \cline{20-24} \cline{21-24} \cline{22-24} \cline{23-24} \cline{24-24} 
+\multicolumn{1}{c}{} & \texttt{Output:} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \multicolumn{1}{c}{}\tabularnewline
+\end{tabular}
+\end{singlespace}
+
+\subsection*{Task 3.1 }
+
+To facilitate the ease of retrieval of the pages, the programmer decide
+to create a class \texttt{Page }to store the addresses, its title
+and the timestamp when it was first accessed. The class will store
+the following data:
+\begin{itemize}
+\item \texttt{page\_address} - stored as a string
+\item \texttt{page\_title} - also stored as a string
+\item \texttt{time\_stamp} - a string with the format \texttt{YYYY-MM-DDTHH:MM:SSZ},
+where \texttt{YYYY-MM-DD }and\texttt{ HH:MM:SS }are the dates and
+hours at which the addresses were visited.
+\end{itemize}
+The class has the following methods defined on it:
+\begin{itemize}
+\item \texttt{get\_address()}: returns the address of the visited page
+\item \texttt{get\_title()}: returns the title of the visited page
+\item \texttt{get\_date()}: returns \texttt{YYYY-MM-DD }part of the time
+stamp
+\item \texttt{get\_hour()}: returns \texttt{HH:MM:SS }part of the time stamp
+\item \texttt{display()}: returns a string of the form \texttt{Page(<page\_address>,
+<page\_title>, <time\_stamp>) }where \texttt{<page\_address>}, \texttt{<page\_title>},
+\texttt{<time\_stamp> }are the corresponding attributes of the \texttt{Page}
+object.
+\end{itemize}
+Write the class \texttt{Page }with its associated methods in Python.
+\hfill{}{[}5{]}
+
+\newpage
+
+\subsection*{Task 3.2 }
+
+Write the \texttt{Stack} class in Python. Use of a simple Python list
+is not sufficient. Include the following methods: 
+\begin{itemize}
+\item \texttt{push(page\_object)} inserts the \texttt{page\_object} at the
+top of the stack 
+\item \texttt{pop()} attempts to pop the \texttt{page\_object} at the top
+of the stack; if the item was not present, return \texttt{None} 
+\item \texttt{search(page\_title)} returns a Boolean value: \texttt{True}
+if\texttt{ }a page with title \texttt{page\_title} is in the stack,
+\texttt{False} if not in the stack 
+\item \texttt{count()} should return the number of elements in the stack,
+or zero if empty 
+\item \texttt{to\_String()} should return a string containing a suitably
+formatted list with the elements being page objects in the stack,
+separated by a comma and a space, with square brackets at either end,
+eg. in the form: 
+
+\begin{minipage}[t]{0.8\columnwidth}%
+\texttt{{[}}
+
+\texttt{Page(https://ovh.net/diam/erat/fermentum/justo.html, Monitored
+radical synergy, 2021-09-17T09:33:05Z),}
+
+\texttt{Page(http://bloglovin.com/felis/donec/semper.xml, De-engineered
+asymmetric structure, 2021-09-17T09:33:35Z)}
+
+\texttt{{]}}%
+\end{minipage}
+
+\hfill{}{[}9{]}
+\end{itemize}
+Test \texttt{Stack} by using the data in the file \texttt{Task3data1.csv},
+where line 1 is the first site visited. Use the \texttt{to\_String()}
+method to print the contents of the stack. \hfill{}{[}3{]}
+
+\newpage
+
+\subsection*{Task 3.3}
+
+To manage the number of browsing history, the programmer decided to
+limit the number of elements in the stack to 12.
+
+Write a Python subclass \texttt{ModStack} using \texttt{Stack} as
+its superclass. 
+
+The \texttt{push} method in the \texttt{ModStack} subclass should
+ensure if another page is accessed when the number of elements in
+the new data structure is 12, the earliest visited address will be
+removed from the history and the latest address is pushed to the top
+of the new data structure. \hfill{}{[}4{]}
+
+Test \texttt{ModStack} by using the data in the file \texttt{Task3data2.csv},
+where line 1 is the first site visited. Print the result of searching
+the \texttt{ModStack} for the page with a title \texttt{'Object-based
+global firmware'}. \hfill{}{[}2{]}
+
+\subsection*{Task 3.4 }
+
+After some experimentation, the programmer realised that using a stack
+like data structure for a browsing history is rather silly as the
+user can only move to latest previously visited page before returning
+back to the desired page. And, once he reached the desired page, the
+data structure no longer holds the browsing history after that page. 
+
+As such, he decided to use a linked list instead. 
+
+For this task, ignore the browsing history limit mentioned in Task
+3.3.
+
+Write a Python subclass \texttt{PageNode} using \texttt{Page} as its
+superclass to be used in the linked list. Include the following attributes
+for the PageNode object:
+\begin{itemize}
+\item \texttt{next} : initializes to \texttt{None}. Stores a pointer to
+the next \texttt{PageNode} object in the linked list after the current
+\texttt{PageNode} object.
+\end{itemize}
+The subclass also has the following methods defined on it:
+\begin{itemize}
+\item \texttt{get\_next()}: returns the next \texttt{PageNode} object in
+the linked list. If there's no such object, return \texttt{None}.
+\item \texttt{set\_next(page)}:\texttt{ }set the pointer from the node to
+the next \texttt{PageNode} object in the linked list. 
+\end{itemize}
+Write the \texttt{LinkedList} class in Python. Use of a simple Python
+list is not sufficient. Include the following methods: 
+\begin{itemize}
+\item \texttt{insert(page\_object)} inserts the \texttt{page\_object} at
+the end of the list 
+\item \texttt{delete(page\_title)} attempts to delete a \texttt{PageNode
+}object containing data \texttt{page\_title} from the list; if the
+item was not present, return \texttt{None.}
+\item \texttt{to\_String()} should return a string containing a suitably
+formatted list with the elements separated by a comma and a space,
+with square brackets at either end, eg. in the form: 
+
+\begin{minipage}[t]{0.8\columnwidth}%
+\texttt{{[}}
+
+\texttt{Page(https://ovh.net/diam/erat/fermentum/justo.html, Monitored
+radical synergy, 2021-09-17T09:33:05Z),}
+
+\texttt{Page(http://bloglovin.com/felis/donec/semper.xml, De-engineered
+asymmetric structure, 2021-09-17T09:33:35Z)}
+
+\texttt{{]}}%
+\end{minipage}
+\item \texttt{visit(page\_title) }is a procedure that emulates the user
+visiting an address with a given page title \texttt{page\_title} in
+the history\texttt{.} The page title will be searched from the head
+of the linked list. If the page title is found, the node will first
+be removed from the linked list and then placed back at the tail of
+the list. If the page is not found, print \texttt{'Page Not Found
+in History'}.
+\end{itemize}
+\hfill{}{[}9{]}
+
+Create two \texttt{LinkedList} objects by using the data in the file
+\texttt{Task3data2.csv, }where line 1 is the first site visited.
+
+Test the objects with the following methods:
+\begin{itemize}
+\item \texttt{visit('Streamlined didactic matrix')},
+\item \texttt{visit('Advanced locale concept').}
+\end{itemize}
+Use the \texttt{to\_String()} method to print the resulting contents
+of the list.\hfill{}{[}2{]}
+
+Save your Jupyter notebook for Task 3.
+
+\newpage
+\item A text file, \texttt{TIDES.TXT}. contains the low and high tide information
+for a coastal location tor each day of a month. Each line contains
+tab-delimited data that shows the date, the time. whether the tide
+is high or low and the tide height in metres. 
+
+Each line is in the format: 
+\begin{center}
+\texttt{YYYY-MM-DD\textbackslash tHH:mm\textbackslash tTIDE\textbackslash tHEIGHT\textbackslash n }
+\par\end{center}
+\begin{itemize}
+\item The date is in the term YYYY-MM-DD, for example. 2019-08-03 is 3rd
+August. 2019 
+\item The time is in the form HH:mm, for example. 13:47 
+\item TIDE is either HIGH or LOW 
+\item HEIGHT is a positive number shown to one decimal place 
+\item \texttt{\textbackslash t} represents the tab character
+\item \texttt{\textbackslash n} represents the newline character 
+\end{itemize}
+The text file is stored in ascending order of date and time.
+
+\subsubsection*{Task 4.1}
+
+Write program code to:
+\begin{itemize}
+\item read the tide data from the text file \texttt{TIDES.TXT}
+\item insert all information from the file into a SQLite database called
+\texttt{tide.db} with the single table, \texttt{Tide}. The table will
+have the following fields of the given SQLite types:
+\begin{itemize}
+\item \texttt{RecordID} - primary key, an auto-incremented integer
+\item \texttt{Date} - the date in the format YYYY-MM-DD, text
+\item \texttt{Time} - the time in the format HH:mm, text
+\item \texttt{isHigh} - a Boolean using 0 if the field entry for the row
+is \texttt{LOW} and 1 if the entry is \texttt{HIGH}, integer
+\item \texttt{Height }- positive number shown to one decimal place, real
+\hfill{}{[}4{]}
+\end{itemize}
+\end{itemize}
+\newpage
+
+\subsubsection*{Task 4.2}
+
+A researcher decided that he wanted to use the information in \texttt{tide.db}
+to calculate some values from a remote computer. As such, he decided
+to use socket programming to achieve his goal. 
+
+Write a server program that:
+\begin{itemize}
+\item instantiates a server socket,
+\item binds the socket to localhost and port number 8888,
+\item listens for incoming request, accepts incoming request and establishes
+connection with the client,
+\item presents the client with a menu with the following options:
+
+\begin{tabular}{|ll|}
+\hline 
+1. & Highest high tide with one corresponding date and time it happened\tabularnewline
+2. & Lowest low tide with one corresponding date and time it happened\tabularnewline
+3. & Largest tidal range\tabularnewline
+4. & Smallest tidal range\tabularnewline
+\hline 
+\end{tabular}
+\item calculates the values (round to 1 decimal places) requested by the
+client from the menu by accessing \texttt{tide.db}. The \emph{tidal
+range} in the menu is defined to be the absolute difference between
+the heights of successive tides; from a high tide to the following
+low tide or from a low tide to the following high tide, 
+\item send the requested value to the client.
+\end{itemize}
+Save your server program in the file \texttt{TASK4\_SERVER\_<your
+name>.py.}\hfill{}{[}9{]}
+
+\subsubsection*{Task 4.3}
+
+Write a corresponding client program that can:
+\begin{itemize}
+\item connect to the server,
+\item asks the user for an input to request for the values that the server
+can calculate,
+\item close the sockets when the service from server is no longer required.
+\end{itemize}
+Save your client program in the file \texttt{TASK4\_CLIENT\_<your
+name>.py.}\hfill{}{[}3{]}
+
+\thispagestyle{laststyle}
+\end{enumerate}
+
+\end{document}
