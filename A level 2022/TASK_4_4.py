@@ -3,7 +3,7 @@ from flask import render_template
 import sqlite3
 
 app = flask.Flask(__name__)
-app.root_path = 'Task_4_4/'  # treat this folder as root dir to access subfolders within it
+app.root_path = 'TASK_4_4/'  # treat this folder as root dir to access subfolders within it
 
 
 def connect_db(path):
