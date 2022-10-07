@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Home</title>
+    <style>
+        td, th {
+            border: 2px solid black;
+            border-collapse: collapse;
+            text-align: center;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+<table border="solid" align="center">
+    <tr>
+        <th>Family Name</th>
+        <th>Given Name</th>
+        <th>Book Title</th>
+    </tr>
+    {% for result in results %}
+        <tr>
+            <td>{{ result.family_name }}</td>
+            <td>{{ result.given_name }}</td>
+            <td>{{ result.title }}</td>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
