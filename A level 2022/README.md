@@ -1,7 +1,7 @@
 # Singapore GCE A-level 2022 H2 Computing Practical (9569/02) Solutions
 #### Note: Everything in this repository is unofficial and is not endorsed by the SEAB nor any school teacher/personnel from MOE. These are made solely by a student who have taken the exam and are made public purely and only for educational purposes. I do not guarantee the accuracy and correctness of this solution, but I tried my best to ensure it.
 
-Question paper can be found [in the same folder](Question%20paper.pdf).
+Question paper can be found ~~in commit history~~ due to IP issues.
 
 Comments are omitted unless absolutely necessary for educational purposes. Do note that to score full mark for "good coding practices", you have to add a lot more comments than I did in this solution set. There were also some code that provides little educational value that are omitted but still **required** in actual exam (e.g. class attribute getters and setters, automated testing). I left comments in places where I omitted such code.
 
